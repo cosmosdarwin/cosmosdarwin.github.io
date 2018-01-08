@@ -1,3 +1,3 @@
-# Blog
+# Personal blog
 
-The jekyll files that generate my blog.
+My personal blog, powered by jekyll and the files in this repository.
