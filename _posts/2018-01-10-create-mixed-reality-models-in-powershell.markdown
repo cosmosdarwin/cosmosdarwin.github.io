@@ -96,13 +96,6 @@ It takes about an hour of stumbling around to get the syntax right (no online he
 
 Adjusting `n` adjusts the level of detail of the output cylinder:
 
-<center><video width="840" height="400" controls>
-  <source src="/../images/cylinder.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video></center>
-
-**Cylinders with n = 5, n = 10, and n = 20.**
-
 Here's the script. It's actually under 50 lines, even gratuitously commented.
 
 {% highlight powershell %}
@@ -242,10 +235,7 @@ Here's the profile parameterized in terms of guide circles, numbered, and straig
 
 Now, take `h` as the height along the vertical y-axis. At each of `n` points, create a circle of radius `r(h)` and connect it to the prior circle with quadrilateral side walls. Barebones, the script is 75 lines.
 
-<video width="570" height="570" controls>
-  <source src="/../images/wine-glass-simple.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+![wine-glass-simple](/../images/wine-glass-simple.gif)
 
 It works!
 
@@ -254,8 +244,6 @@ Admittedly, using PowerShell to generate models in this way is laughably ineffic
 The last touch is to add smooth shading and materials, like highly specular glass.
 
 All in, `generate-wine-glass.ps1` is under 200 lines, thoroughly commented. See it [on GitHub]().
-
-![wine-glass-simple](/../images/wine-glass-simple.gif)
 
 And as the name implies, Mixed Reality Viewer (much like ARKit or ARCore) lets us place the model into the real world, with primitive but convincing enough shadows and motion tracking:
 
