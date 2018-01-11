@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Cosmos Darwin
-email: cosmosdarwin@live.com
+email: me@cosmosdarwin.com
 description: >- # this means to ignore newlines until "baseurl:"
   I work on the Windows team at Microsoft, but this is my personal blog. Also math, design, filmmaking, and pizza. Hello from Seattle! 
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -23,11 +23,18 @@ twitter_username: cosmosdarwin
 github_username:  cosmosdarwin
 
 # Build settings
+future: true
 markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
+
+# Author
+cosmos_darwin:
+  name: Cosmos Darwin
+  email: me@cosmosdarwin.com
+  web: https://twitter.com/cosmosdarwin
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
