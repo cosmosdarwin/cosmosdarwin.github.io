@@ -41,7 +41,7 @@ Save it as `.obj` extension, open it in [Mixed Reality Viewer](https://www.micro
 
 ![cube](/../images/cube.png)
 
-At this point, I'm on an airplane, with many hours left to go.
+At this point in the story, I'm on an airplane, with many hours left in my flight.
 
 Given the circumstances, I push further. Here's an octagonal prism:
 
