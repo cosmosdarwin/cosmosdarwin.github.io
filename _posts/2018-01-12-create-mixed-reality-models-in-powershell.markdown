@@ -90,7 +90,7 @@ How to make an n-sided cylindrical polyhedron? Ordinarily, you'd use fancy softw
 
 Spotify? That's no good. Chrome? Instagram?
 
-PowerShell.
+*Aha!* PowerShell.
 
 It takes about an hour of stumbling around to get the syntax right (no online help, mind you), but eventually we're in business. The approach is straightforward: take two circles of radius `r` some height `h` apart, evaluates `n` points around them, and connect them together to form an n-sided cylinder. Write it all to an output file, taking care to use ASCII encoding.
 
@@ -152,9 +152,10 @@ $LowerBase = ""
 "f $LowerBase" | Add-Content $FilePath
 
 # Cylinder side walls
-# Generalize from 1 -> 2 -> 4 -> 3 base case, odds only
 1..(2 * $N - 3) | ForEach {
     If ($_ % 2 -Eq 1) {
+
+        # Generalize from 1 -> 2 -> 4 -> 3 base case, odds only
         $v1 = $_
         $v2 = $_ + 1
         $v3 = $_ + 3
@@ -163,7 +164,7 @@ $LowerBase = ""
     }
 }
 
-\# Close it up!
+# Close it up!
 "f -2 -1 2 1" | Add-Content $FilePath
 
 {% endhighlight %}
@@ -214,19 +215,19 @@ Here's the relevant excerpt:
 
 {% highlight powershell %}
 
-/# Cake foundation
+# Cake foundation
 "usemtl white" | Add-Content $FilePath
 New-Cylinder -FilePath $FilePath -n 60 -UseShading -r 40 -h 20 -y 4
 New-Cylinder -FilePath $FilePath -n 60 -UseShading -r 30 -h 20 -y 28
 New-Cylinder -FilePath $FilePath -n 60 -UseShading -r 20 -h 20 -y 52
 
-/# Cake accents
+# Cake accents
 "usemtl pink" | Add-Content $FilePath
 New-Cylinder -FilePath $FilePath -n 60 -UseShading -r 41 -h 4
 New-Cylinder -FilePath $FilePath -n 60 -UseShading -r 31 -h 4 -y 24
 New-Cylinder -FilePath $FilePath -n 60 -UseShading -r 21 -h 4 -y 48
 
-/# Cake pedals
+# Cake pedals
 "usemtl white" | Add-Content $FilePath
 New-Cylinder -FilePath $FilePath -n 60 -UseShading -r 35 -h 1 -y 24 -p 15
 New-Cylinder -FilePath $FilePath -n 60 -UseShading -r 25 -h 1 -y 48 -p 15
@@ -264,7 +265,7 @@ The last touch is to add smooth shading and materials, like highly specular glas
 
 ![wine-glass](/../images/wine-glass.gif)
 
-All in, `generate-wine-glass.ps1` is under 200 lines, thoroughly commented. See it [on GitHub](https://github.com/cosmosdarwin/obj-in-powershell/blob/master/Generate-Wine-Glass/generate-wine-glass.ps1).
+All in, `generate-wine-glass.ps1` is under 200 lines, even generously commented. See it [on GitHub](https://github.com/cosmosdarwin/obj-in-powershell/blob/master/Generate-Wine-Glass/generate-wine-glass.ps1).
 
 And as the name implies, Mixed Reality Viewer (much like ARKit or ARCore) lets us place the model into the real world, with primitive but convincing enough shadows and motion tracking:
 
