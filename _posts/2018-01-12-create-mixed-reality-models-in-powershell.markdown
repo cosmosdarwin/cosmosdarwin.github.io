@@ -88,21 +88,15 @@ And in Mixed Reality Viewer:
 
 How to make an n-sided cylindrical polyhedron? Ordinarily, you'd use fancy software for this, but unfortunately, I have none, and I'm stuck on this plane. What apps *do* I have?
 
-Spotify? That's no good. Chrome? Instagram?
-
 *Aha!* PowerShell.
 
 It takes about an hour of stumbling around to get the syntax right (no online help, mind you), but eventually we're in business. The approach is straightforward: take two circles of radius `r` some height `h` apart, evaluates `n` points around them, and connect them together to form an n-sided cylinder. Write it all to an output file, taking care to use ASCII encoding.
 
-Adjusting `n` adjusts the level of detail of the output cylinder:
+It works!
 
-<img src="/../images/generate-cylinder-rcc-05.gif" style="width: 200px;"/>
-<img src="/../images/generate-cylinder-rcc-10.gif" style="width: 200px;"/>
-<img src="/../images/generate-cylinder-rcc-20.gif" style="width: 200px;"/>
+![generate-cylinder-rcc-10](/../images/generate-cylinder-rcc-10.gif)
 
-*Cylinder with N = 5, N = 10, N =20.*
-
-Here's [the script](https://github.com/cosmosdarwin/obj-in-powershell/blob/master/Generate-Cylinder/generate-cylinder.ps1). It's actually under 50 lines, even generously commented.
+Here's [the script](https://github.com/cosmosdarwin/obj-in-powershell/blob/master/Generate-Cylinder/generate-cylinder.ps1). It's actually fewer than 50 lines, even generously commented.
 
 {% highlight powershell %}
 
@@ -176,6 +170,7 @@ In addition to face normals, you can declare (optional) vertex normals in lines 
 Specifying the exact normal to the surface *per point*, rather than per face, lets the renderer interpolate to achieve smooth [shading](https://en.wikipedia.org/wiki/Shading) despite our relatively low-polygon model. In this case, the normal is conveniently along the radial axis, always. And the results are surprisingly good:
 
 ![cylinder-without-shading](/../images/cylinder-without-shading.png)
+
 ![cylinder-with-shading](/../images/cylinder-with-shading.png)
 
 *The cylinder without shading, then with shading.*
@@ -265,7 +260,7 @@ The last touch is to add smooth shading and materials, like highly specular glas
 
 ![wine-glass](/../images/wine-glass.gif)
 
-All in, `generate-wine-glass.ps1` is under 200 lines, even generously commented. See it [on GitHub](https://github.com/cosmosdarwin/obj-in-powershell/blob/master/Generate-Wine-Glass/generate-wine-glass.ps1).
+All in, `generate-wine-glass.ps1` is fewer than 200 lines, even with comments. See it [on GitHub](https://github.com/cosmosdarwin/obj-in-powershell/blob/master/Generate-Wine-Glass/generate-wine-glass.ps1).
 
 And as the name implies, Mixed Reality Viewer (much like ARKit or ARCore) lets us place the model into the real world, with primitive but convincing enough shadows and motion tracking:
 
