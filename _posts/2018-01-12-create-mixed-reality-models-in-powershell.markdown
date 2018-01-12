@@ -96,6 +96,8 @@ It works!
 
 ![generate-cylinder-rcc-10](/../images/generate-cylinder-rcc-10.gif)
 
+*This model was generated in PowerShell! n = 10*
+
 Here's [the script](https://github.com/cosmosdarwin/obj-in-powershell/blob/master/Generate-Cylinder/generate-cylinder.ps1). It's actually fewer than 50 lines, even generously commented.
 
 {% highlight powershell %}
@@ -163,6 +165,8 @@ $LowerBase = ""
 
 {% endhighlight %}
 
+Adjusting `n` adjusts the output level of detail.
+
 There is subtlety to the `.obj` format. In 3D modeling, faces are generally one-sided, meaning they are opaque seen one way, but *completely see-through* seen the other way. There's no good real-world analogy, it's just how it is. In `.obj`, the direction of the face is implicit from the vertex order: they are declared counter-clockwise.
 
 In addition to face normals, you can declare (optional) vertex normals in lines beginning with `vn`. For example, `vn 0 0 1` is the unit vector along the positive z-axis, "forward" in most software. You reference vertex normals by index too, after each vertex. So `f 1//1 2//1 3//1` is the triangle from before, further specified to face forward at every corner.
@@ -170,10 +174,9 @@ In addition to face normals, you can declare (optional) vertex normals in lines 
 Specifying the exact normal to the surface *per point*, rather than per face, lets the renderer interpolate to achieve smooth [shading](https://en.wikipedia.org/wiki/Shading) despite our relatively low-polygon model. In this case, the normal is conveniently along the radial axis, always. And the results are surprisingly good:
 
 ![cylinder-without-shading](/../images/cylinder-without-shading.png)
-
 ![cylinder-with-shading](/../images/cylinder-with-shading.png)
 
-*The cylinder without shading, then with shading.*
+*The cylinder without shading, then with shading. n = 20*
 
 In software packages like Blender, the only pre-made shapes that come included are things like cubes, cylinders, and spheres. Everything else is derived from there. `generate-cylinder.ps1` is my first building block.
 
