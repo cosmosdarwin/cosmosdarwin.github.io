@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Create mixed reality models in PowerShell – yes, really!"
+title: "Create mixed reality models in PowerShell"
 author: "Cosmos Darwin"
 ---
 
