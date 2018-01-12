@@ -96,7 +96,7 @@ It works!
 
 ![generate-cylinder-rcc-10](/../images/generate-cylinder-rcc-10.gif)
 
-*This model was generated in PowerShell! n = 10*
+*This model was generated in PowerShell. n = 10*
 
 Here's [the script](https://github.com/cosmosdarwin/obj-in-powershell/blob/master/Generate-Cylinder/generate-cylinder.ps1). It's actually fewer than 50 lines, even generously commented.
 
@@ -167,7 +167,7 @@ $LowerBase = ""
 
 Adjusting `n` adjusts the output level of detail.
 
-There is subtlety to the `.obj` format. In 3D modeling, faces are generally one-sided, meaning they are opaque seen one way, but *completely see-through* seen the other way. There's no good real-world analogy, it's just how it is. In `.obj`, the direction of the face is implicit from the vertex order: they are declared counter-clockwise.
+Turns out, there is subtlety in the `.obj` format. In 3D modeling, faces are generally one-sided, meaning they are opaque seen one way, but *completely see-through* seen the other way. There's no good real-world analogy, it's just how it is. In `.obj`, the direction of the face is implicit from the vertex order: they are declared counter-clockwise.
 
 In addition to face normals, you can declare (optional) vertex normals in lines beginning with `vn`. For example, `vn 0 0 1` is the unit vector along the positive z-axis, "forward" in most software. You reference vertex normals by index too, after each vertex. So `f 1//1 2//1 3//1` is the triangle from before, further specified to face forward at every corner.
 
@@ -265,7 +265,7 @@ The last touch is to add smooth shading and materials, like highly specular glas
 
 All in, `generate-wine-glass.ps1` is fewer than 200 lines, even with comments. See it [on GitHub](https://github.com/cosmosdarwin/obj-in-powershell/blob/master/Generate-Wine-Glass/generate-wine-glass.ps1).
 
-And as the name implies, Mixed Reality Viewer (much like ARKit or ARCore) lets us place the model into the real world, with primitive but convincing enough shadows and motion tracking:
+And as the name implies, Mixed Reality Viewer (much like ARKit or ARCore) lets us place the model into the real world, with primitive but convincing-enough shadows and motion tracking:
 
 ![wine-glass-mr](/../images/wine-glass-mr.gif)
 
