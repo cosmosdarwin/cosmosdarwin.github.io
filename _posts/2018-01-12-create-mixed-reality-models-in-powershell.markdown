@@ -171,7 +171,7 @@ Turns out, there is subtlety in the `.obj` format. In 3D modeling, faces are gen
 
 In addition to face normals, you can declare (optional) vertex normals in lines beginning with `vn`. For example, `vn 0 0 1` is the unit vector along the positive z-axis, "forward" in most software. You reference vertex normals by index too, after each vertex. So `f 1//1 2//1 3//1` is the triangle from before, further specified to face forward at every corner.
 
-Specifying the exact normal to the surface *per point*, rather than per face, lets the renderer interpolate to achieve smooth [shading](https://en.wikipedia.org/wiki/Shading) despite our relatively low-polygon model. In this case, the normal is conveniently along the radial axis, always. And the results are surprisingly good:
+Specifying the exact normal to the surface *per point*, rather than per face, lets the renderer interpolate to achieve smooth [shading](https://en.wikipedia.org/wiki/Shading) despite our relatively low-polygon model. In this case, the normal is conveniently along the radial axis, always. The results are surprisingly good:
 
 ![cylinder-without-shading](/../images/cylinder-without-shading.png)
 ![cylinder-with-shading](/../images/cylinder-with-shading.png)
@@ -251,7 +251,7 @@ Here's the profile parameterized in terms of guide circles, numbered, and straig
 
 ![profile-parameterized](/../images/profile-parameterized.png)
 
-Now, take `h` as the height along the vertical y-axis. At each of `n` points, create a circle of radius `r(h)` and connect it to the prior circle with quadrilateral side walls. Barebones, the script is 75 lines.
+Now, take `h` as the height along the vertical y-axis. At each of `n` points, create a circle of radius `r(h)` and connect it to the prior circle with quadrilateral side walls.
 
 ![wine-glass-simple](/../images/wine-glass-simple.gif)
 
